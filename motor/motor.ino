@@ -1,5 +1,7 @@
 
 #include <Servo.h> 
+
+//#define LED 13
  
 Servo motor1;  // create servo object to control a servo 
 Servo motor2;
@@ -12,6 +14,7 @@ int count = 0;
  
 void setup() 
 { 
+  //pinMode(LED, OUTPUT);
   motor1.attach(9);  // attaches the servo on pin 9 to the servo object 
   motor2.attach(10);
   motor3.attach(11);
@@ -36,6 +39,7 @@ void setup()
   delay(500);
   motor4.write(80);
   delay(500);
+  //digitalWrite(LED, HIGH);
 } 
  
 void loop() 

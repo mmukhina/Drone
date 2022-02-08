@@ -35,40 +35,32 @@ void setup()
   digitalWrite(LED, HIGH);
 } 
  
-void loop() 
-{ 
-  if (Serial.read() == '1'){
+void loop() {
+   
+  if (Serial.read() == '1' and count == 0){
     for (int i = 0; i <= 80; i++){
       motor1.write(i);
       motor2.write(i);
       motor3.write(i);
       motor4.write(i);
+      delay(15);
       Serial.print(i);
-    }
+      Serial.print("\n");
+      }
+    count = 1;
   }
-  
-  //delay(100);
-  //val = analogRead(potpin);            // reads the value of the potentiometer (value between 0 and 1023) 
-  //val = map(val, 0, 1023, 0, 179);     // scale it to use it with the servo (value between 0 and 180) 
-  //Serial.print(val);
-  //Serial.print("\n");
-  //motor1.write(0); 
-  //delay(15); 
-  //motor1.write(85);                   // sets the servo position according to the scaled value 
-  //motor2.write(val);
-  //motor3.write(val);
-  //motor4.write(val);
-  //delay(15);                           // waits for the servo to get there 
-//  if (count == 0){
-//    for (int i = 0; i <= 90; i++) {
-//    Serial.print(i);
-//    Serial.print("\n");
-//    motor1.write(i);
-//    //delay(10);
-//    }
-//    count = 1;
-//  }
-//  //writemicrosecond
 
-  //mot
+  if (Serial.read() == '2' and count == 1{
+    for (int i = 80; i <= 0; i--){
+    motor1.write(i);
+    motor2.write(i);
+    motor3.write(i);
+    motor4.write(i);
+    delay(15);
+    Serial.print(i);
+    Serial.print("\n");
+    }
+    count = 0;
+   }
+    
 }
