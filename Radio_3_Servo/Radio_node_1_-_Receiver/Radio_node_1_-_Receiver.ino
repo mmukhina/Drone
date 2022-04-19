@@ -18,6 +18,7 @@ void setup() {
   radio.setDataRate     (RF24_250KBPS);      
   radio.setPALevel      (RF24_PA_HIGH);      
   radio.openWritingPipe (0xAABBCCDD11LL); 
+  radio.stopListening();
   //radio.openReadingPipe (2, 0xAABBCCDD22LL);
   //radio.openReadingPipe (3, 0xAABBCCDD33LL);
   //radio.openWritingPipe (0xAABBCCDD22LL);                
@@ -27,9 +28,9 @@ void setup() {
 }
 void loop() {
   //radio.stopListening();
-  delay(5);
-  int joyValue = analogRead(14);
-  int angleValue = map(joyValue, 0, 1023, 0, 180);
+  delay(2000);
+  //int joyValue = analogRead(14);
+  int angleValue = 1;
   Serial.println(angleValue);
   if (radio.write(&angleValue, sizeof(angleValue))){
     digitalWrite(7, HIGH);

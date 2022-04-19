@@ -12,10 +12,11 @@ void setup() {
   Serial.begin(9600);
   pinMode(14, OUTPUT);
   pinMode(15, OUTPUT);
-  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
   delay(1000);
   radio.begin();                            
-  radio.setChannel(5);                      
+  radio.setChannel(5); 
+  radio.setAutoAck(true);                     
   radio.setDataRate(RF24_250KBPS);     
   radio.setPALevel(RF24_PA_HIGH);
   radio.openReadingPipe(1, 0xAABBCCDD11LL);   
@@ -23,18 +24,19 @@ void setup() {
   radio.startListening();
   servo3.attach(5);
   pinMode(button, INPUT);
+  digitalWrite(7, HIGH);
 }
 
 void loop () {
-  delay(100);
-  if (radio.available(&pipe)){
-      digitalWrite(6, HIGH);
-      int angleValue = 0;
-      radio.read(&angleValue, sizeof(angleValue));
-      servo3.write(angleValue);
-      Serial.println(angleValue);
-    }
-  else digitalWrite(6, LOW);
+  delay(5);
+  digitalWrite(7, HIGH);
+//  if (radio.available(&pipe)){
+//      digitalWrite(7, HIGH);
+//      int angleValue = 0;
+//      radio.read(&angleValue, sizeof(angleValue));
+//      Serial.println(angleValue);
+//    }
+//  else digitalWrite(7, LOW);
   
 
 //  state = digitalRead(button);

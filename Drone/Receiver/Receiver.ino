@@ -38,29 +38,32 @@ void setup()
 void loop() {
    
   if (Serial.read() == '1' and count == 0){
-    for (int i = 0; i <= 80; i++){
+    for (int i = 0; i <= 100; i++){
       motor1.write(i);
       motor2.write(i);
       motor3.write(i);
       motor4.write(i);
-      delay(15);
+      delay(30);
       Serial.print(i);
       Serial.print("\n");
       }
     count = 1;
+    Serial.print(count);
+    Serial.print("\n");
   }
 
-  if (Serial.read() == '2' and count == 1{
-    for (int i = 80; i <= 0; i--){
-    motor1.write(i);
-    motor2.write(i);
-    motor3.write(i);
-    motor4.write(i);
-    delay(15);
-    Serial.print(i);
-    Serial.print("\n");
+  else if (Serial.read() == '2' and count == 1){
+    for (int i = 100; i >= 0; i--){
+      motor1.write(i);
+      motor2.write(i);
+      motor3.write(i);
+      motor4.write(i);
+      delay(30);
+      Serial.print(i);
+      Serial.print("\n");
     }
     count = 0;
+    Serial.print(count);
    }
     
 }
