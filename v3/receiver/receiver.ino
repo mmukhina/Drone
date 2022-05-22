@@ -25,7 +25,7 @@ void setup() {
   Serial.begin(9600);
   //pinMode(14, OUTPUT);
   //pinMode(15, OUTPUT);
-  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
   delay(1000);
   radio.begin();
   radio.setChannel(5);
@@ -40,7 +40,7 @@ void setup() {
   motor1.attach(A1);
   motor2.attach(A2);
   motor3.attach(A3);
-  motor4.attach(A4);
+  motor4.attach(A0);
   motor1.write(179);
   motor2.write(179);
   motor3.write(179);
@@ -50,23 +50,23 @@ void setup() {
   motor2.write(0);
   motor3.write(0);
   motor4.write(0);
-  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
   delay(8000);
-  digitalWrite(6, LOW);
+  digitalWrite(7, LOW);
 
 }
 
 void loop () {
   delay(5);
   if (radio.available(&pipe)) {
-    digitalWrite(6, HIGH);
+    digitalWrite(7, HIGH);
 
     radio.read(&angleValue, sizeof(angleValue));
     Serial.println(angleValue);
 
 
   }
-  else digitalWrite(6, LOW);
+  else digitalWrite(7, LOW);
 
 
   if (angleValue == 0) {

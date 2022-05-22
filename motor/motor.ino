@@ -12,7 +12,7 @@ int potpin = 0;  // analog pin used to connect the potentiometer
 int val;    // variable to read the value from the analog pin 
 int count = 0;
  
-void setup() 
+void setup()   
 { 
   //pinMode(LED, OUTPUT);
   motor1.attach(9);  // attaches the servo on pin 9 to the servo object 
@@ -44,9 +44,9 @@ void setup()
  
 void loop() 
 { 
-  motor1.write(80);
-  motor2.write(80);
-  motor3.write(80);
+  motor1.write(100);
+  motor2.write(100);
+  motor3.write(100);
   motor4.write(80);
   //delay(100);
   //val = analogRead(potpin);            // reads the value of the potentiometer (value between 0 and 1023) 
